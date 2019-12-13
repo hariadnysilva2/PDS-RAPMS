@@ -1,0 +1,25 @@
+<div id="id01" class="modal">
+    <form class="modal-content animate" action="ws/wsCadastrarUsuario.php" method="post" enctype="multipart/form-data">
+       
+        <div>
+            <label for="iptId">Informe o Id:</label>
+            <input type="text" name="iptId" id="iptId">
+        </div>
+        <div>
+            <label for="iptId">Informe o Nome:</label>
+            <input type="text" name="iptNome" id="iptId">
+        </div>
+        <div>
+            <label for="iptSenha">Informe a Data de Nascimento:</label>
+            <input type="password" name="iptDataNasc" id="iptId">
+        </div>
+        <div>
+            <input class="btn" type="submit" value="Cadastrar">
+            <a href="../ws/wsCadastrarUsuario.php" class="log"></a>
+            <input type="button"
+                   class="btn cancelbtn"
+                   value="Cancelar"
+                   onclick="showPopup('id01', 'none')">
+        </div>
+    </form>
+</div>
