@@ -1,0 +1,50 @@
+<?php
+require_once dirname(__FILE__).'/../dao/usuarioDao.php';
+class Usuario {
+    private $id;
+    private $email;
+    private $senha;
+
+
+    public function getId() {
+        return $this->id;
+    }
+
+    public function getNome() {
+        return $this->nome;
+    }
+    
+    public function getDataNasc() {
+        return $this->datanasc;
+    }
+
+    public function setId($id) {
+        $this->id = $id;
+    }
+
+    public function SetEmail($nome) {
+        $this->email = $nome;
+    }
+    public function setDataNasc($datanasc) {
+        $this->senha = $datanasc;
+    }
+    
+    public function inserir(){
+        return UsuarioDao::inserir($this->id, $this->nome, $this->datanasc);
+    }
+    
+    public static function login($id) {
+        $table = UsuarioDao::login($id);
+        if(is_object($table)){
+            if($table->num_rows > 0){
+                while($l = $table->fetch_assoc()){
+                    $u = new Usuario();
+                    $u->setId($l["id"]);
+                    
+                    return $u;
+                }
+            }
+        }
+        return null;
+    }
+}
