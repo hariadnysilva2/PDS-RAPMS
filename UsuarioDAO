@@ -1,0 +1,21 @@
+<?php
+
+require_once dirname(__FILE__).'../conexao.php';
+
+class UsuarioDao {
+    public static function inserir($id, $nome, $datanasc){
+        $sql = "insert into usuario (id, nome, datanasc)"
+                . " values ('$id' , '$nome' , '$datanasc');";
+        
+        echo "$sql";
+        
+        Conexao::executar($sql);
+    }
+    
+    public static function login($id) {
+        $sql = "select * from usuario where "
+                . "id='$id';";
+        
+        return Conexao::executar($sql);
+    }
+}
